@@ -1,113 +1,68 @@
 {% comment %}
-  CloudVaultUS — Custom 21+ Age Gate
+  CloudVaultUS — 21+ Age Gate (Yes / No)
   File: snippets/cvus-age-gate.liquid
-  Include in: layout/theme.liquid just before </body>
-  Usage: {% render 'cvus-age-gate' %}
+  Loaded from: layout/theme.liquid (just before </body>)
 {% endcomment %}
 
-<div id="cvus-age-gate" class="cvus-ag" role="dialog" aria-modal="true" aria-labelledby="cvus-ag-title" aria-hidden="true">
+<div
+  id="cvus-age-gate"
+  class="cvus-ag"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cvus-ag-title"
+  aria-describedby="cvus-ag-desc"
+  aria-hidden="true"
+>
   <div class="cvus-ag__backdrop"></div>
 
   <div class="cvus-ag__modal">
-    <!-- Logo / Brand -->
     <div class="cvus-ag__brand">
-      <span class="cvus-ag__logo">CloudVaultUS</span>
+      <span class="cvus-ag__logo">{{ shop.name }}</span>
       <span class="cvus-ag__tagline">Premium Vape Products</span>
     </div>
 
-    <!-- Icon -->
-    <div class="cvus-ag__icon" aria-hidden="true">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 5v5l3 3"/>
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 8v4l2.5 2.5"/>
-      </svg>
+    <div class="cvus-ag__seal" aria-hidden="true">
+      <span class="cvus-ag__seal-num">21+</span>
     </div>
 
-    <!-- Heading -->
-    <h2 id="cvus-ag-title" class="cvus-ag__heading">Age Verification Required</h2>
-    <p class="cvus-ag__description">
-      This website contains products intended for adults aged <strong>21 and older</strong>.
-      Please confirm your date of birth to continue.
+    <h2 id="cvus-ag-title" class="cvus-ag__heading">Are You 21 or Older?</h2>
+    <p id="cvus-ag-desc" class="cvus-ag__description">
+      This website sells nicotine vaping products intended for adults
+      <strong>21 and older</strong>. By entering, you confirm that you are of
+      legal age to purchase nicotine products in your state.
     </p>
 
-    <!-- DOB Form -->
-    <form id="cvus-ag-form" class="cvus-ag__form" novalidate>
-      <div class="cvus-ag__dob-row">
-        <div class="cvus-ag__field">
-          <label for="cvus-ag-month">Month</label>
-          <select id="cvus-ag-month" name="month" required autocomplete="bday-month">
-            <option value="">MM</option>
-            <option value="1">01 — Jan</option>
-            <option value="2">02 — Feb</option>
-            <option value="3">03 — Mar</option>
-            <option value="4">04 — Apr</option>
-            <option value="5">05 — May</option>
-            <option value="6">06 — Jun</option>
-            <option value="7">07 — Jul</option>
-            <option value="8">08 — Aug</option>
-            <option value="9">09 — Sep</option>
-            <option value="10">10 — Oct</option>
-            <option value="11">11 — Nov</option>
-            <option value="12">12 — Dec</option>
-          </select>
-        </div>
-
-        <div class="cvus-ag__field">
-          <label for="cvus-ag-day">Day</label>
-          <input
-            type="number"
-            id="cvus-ag-day"
-            name="day"
-            min="1"
-            max="31"
-            placeholder="DD"
-            required
-            autocomplete="bday-day"
-          >
-        </div>
-
-        <div class="cvus-ag__field">
-          <label for="cvus-ag-year">Year</label>
-          <input
-            type="number"
-            id="cvus-ag-year"
-            name="year"
-            min="1900"
-            max="2099"
-            placeholder="YYYY"
-            required
-            autocomplete="bday-year"
-          >
-        </div>
-      </div>
-
-      <!-- Error message -->
-      <p id="cvus-ag-error" class="cvus-ag__error" aria-live="polite" hidden></p>
-
-      <!-- Remember checkbox -->
-      <label class="cvus-ag__remember">
-        <input type="checkbox" id="cvus-ag-remember" checked>
-        <span>Remember me on this device for 30 days</span>
-      </label>
-
-      <!-- Submit -->
-      <button type="submit" class="button cvus-ag__submit">
-        Confirm Age &amp; Enter
+    <div class="cvus-ag__actions">
+      <button
+        type="button"
+        id="cvus-ag-yes"
+        class="cvus-ag__btn cvus-ag__btn--yes"
+        aria-label="Yes, I am 21 or older. Enter the site."
+      >
+        Yes, I am 21 or older
       </button>
 
-      <!-- Decline -->
-      <a href="https://www.google.com" class="cvus-ag__decline">
-        I am under 21 — Exit
-      </a>
-    </form>
+      <button
+        type="button"
+        id="cvus-ag-no"
+        class="cvus-ag__btn cvus-ag__btn--no"
+        aria-label="No, I am under 21. Exit the site."
+      >
+        No, I am under 21
+      </button>
+    </div>
 
-    <!-- Legal notice -->
+    <label class="cvus-ag__remember" for="cvus-ag-remember">
+      <input type="checkbox" id="cvus-ag-remember" checked>
+      <span>Remember me on this device for 30 days</span>
+    </label>
+
     <p class="cvus-ag__legal">
-      By entering this site you agree to our
+      WARNING: This product contains nicotine. Nicotine is an addictive
+      chemical. By entering this site you agree to our
       <a href="/policies/terms-of-service">Terms of Service</a>
-      and confirm that nicotine products are legal in your area.
-      This site uses cookies to remember your verification.
+      and confirm that nicotine products are legal in your state.
+      Sale to anyone under 21 is strictly prohibited.
     </p>
   </div>
 </div>

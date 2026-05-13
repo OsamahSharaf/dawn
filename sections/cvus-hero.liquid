@@ -222,7 +222,8 @@
 .cvus-hero__stats {
   display: flex;
   align-items: center;
-  gap: 0;
+  flex-wrap: wrap;
+  gap: 0 28px;
   animation: cvus-fade-up 0.55s 0.40s ease both;
 }
 
@@ -230,9 +231,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
-  padding-right: 20px;
-  margin-right: 20px;
+  gap: 4px;
+  min-width: 0;
+  flex: 0 1 auto;
 }
 
 .cvus-hero__stat-sep {
@@ -240,7 +241,6 @@
   height: 36px;
   background: rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
-  margin-right: 20px;
 }
 
 .cvus-hero__stat-val {
@@ -286,8 +286,34 @@
   .cvus-hero__content { max-width: 100%; align-items: center; text-align: center; }
   .cvus-hero__sub { margin-left: auto !important; margin-right: auto !important; }
   .cvus-hero__btns { justify-content: center; }
-  .cvus-hero__stats { justify-content: center; }
-  .cvus-hero__stat { align-items: center; }
+
+  /* Mobile stats: 3-column grid so labels never run together */
+  .cvus-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 14px;
+    row-gap: 0;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding-top: 8px;
+  }
+  .cvus-hero__stat {
+    align-items: center;
+    text-align: center;
+    padding: 0 4px;
+  }
+  .cvus-hero__stat-val { font-size: 1.6rem; }
+  .cvus-hero__stat-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  /* Replace bar separators with grid gap on mobile */
+  .cvus-hero__stat-sep { display: none; }
   .cvus-hero__heading { font-size: clamp(3rem, 11vw, 5rem) !important; }
 }
 

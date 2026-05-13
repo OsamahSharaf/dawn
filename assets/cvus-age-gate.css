@@ -1,9 +1,8 @@
 /* ============================================================
-   CloudVaultUS — Age Gate Styles
+   CloudVaultUS — Age Gate Styles (Yes / No)
    File: assets/cvus-age-gate.css
    ============================================================ */
 
-/* Gate hidden by default — JS shows it */
 .cvus-ag {
   position: fixed;
   inset: 0;
@@ -22,34 +21,33 @@
   visibility: visible;
 }
 
-/* Backdrop */
 .cvus-ag__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(17, 17, 22, 0.88);
+  background: rgba(17, 17, 22, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Modal card */
+/* Modal */
 .cvus-ag__modal {
   position: relative;
   z-index: 1;
   background: #111116;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  padding: 3rem 2.5rem;
+  padding: 2.75rem 2.25rem 2rem;
   max-width: 460px;
   width: 100%;
   text-align: center;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7),
-              0 0 0 1px rgba(230, 57, 70, 0.1);
+              0 0 0 1px rgba(230, 57, 70, 0.10);
   animation: cvus-ag-slide-up 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes cvus-ag-slide-up {
   from { opacity: 0; transform: translateY(32px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
 }
 
 /* Brand */
@@ -58,211 +56,162 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
 }
-
 .cvus-ag__logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
   text-transform: uppercase;
-  color: #f4f4f5;
 }
-
 .cvus-ag__tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #e63946;
+  color: #E63946;
 }
 
-/* Icon */
-.cvus-ag__icon {
-  width: 64px;
-  height: 64px;
-  background: rgba(230, 57, 70, 0.08);
-  border: 1px solid rgba(230, 57, 70, 0.2);
+/* 21+ Seal */
+.cvus-ag__seal {
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  background: radial-gradient(circle at 35% 30%, rgba(230, 57, 70, 0.35), transparent 70%),
+              #1A1A22;
+  border: 2px solid rgba(230, 57, 70, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
-  color: #e63946;
+  box-shadow: 0 0 0 6px rgba(230, 57, 70, 0.08),
+              0 12px 28px rgba(230, 57, 70, 0.25);
+}
+.cvus-ag__seal-num {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
 }
 
-/* Heading */
+/* Heading & description */
 .cvus-ag__heading {
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  color: #f4f4f5 !important;
-  margin: 0 0 0.8rem !important;
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-size: 1.85rem;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem;
 }
-
-/* Description */
 .cvus-ag__description {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: #a1a1aa;
-  margin: 0 0 2rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 auto 1.75rem;
+  max-width: 360px;
+}
+.cvus-ag__description strong {
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
-.cvus-ag__description strong { color: #f4f4f5; font-weight: 600; }
-
-/* Form */
-.cvus-ag__form { display: flex; flex-direction: column; gap: 1rem; }
-
-.cvus-ag__dob-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.4fr;
-  gap: 0.75rem;
-}
-
-.cvus-ag__field {
+/* Action buttons */
+.cvus-ag__actions {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  text-align: left;
+  gap: 10px;
+  margin-bottom: 1.25rem;
 }
-
-.cvus-ag__field label {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 0.68rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: #a1a1aa !important;
-}
-
-.cvus-ag__field select,
-.cvus-ag__field input {
-  background: #18181f !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px !important;
-  color: #f4f4f5 !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 0.95rem !important;
-  padding: 11px 12px !important;
+.cvus-ag__btn {
   width: 100%;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
-  -webkit-appearance: none;
   appearance: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-
-.cvus-ag__field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a1a1aa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 12px center !important;
-  padding-right: 32px !important;
+.cvus-ag__btn:focus-visible {
+  outline: 2px solid #E63946;
+  outline-offset: 2px;
 }
+.cvus-ag__btn:active { transform: translateY(1px); }
 
-.cvus-ag__field select:focus,
-.cvus-ag__field input:focus {
-  border-color: #e63946 !important;
-  outline: none !important;
-  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.12) !important;
+.cvus-ag__btn--yes {
+  background: #E63946;
+  color: #FFFFFF;
+  border-color: #E63946;
+  box-shadow: 0 8px 22px rgba(230, 57, 70, 0.35);
 }
+.cvus-ag__btn--yes:hover { background: #d12f3c; border-color: #d12f3c; }
 
-/* Error */
-.cvus-ag__error {
-  background: rgba(230, 57, 70, 0.1);
-  border: 1px solid rgba(230, 57, 70, 0.3);
-  border-radius: 8px;
-  color: #fca5a5;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  padding: 10px 14px;
-  text-align: left;
-  margin: 0;
+.cvus-ag__btn--no {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.20);
+}
+.cvus-ag__btn--no:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* Remember checkbox */
 .cvus-ag__remember {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
-  text-align: left;
-}
-
-.cvus-ag__remember input[type="checkbox"] {
-  width: 16px !important;
-  height: 16px !important;
-  min-width: 16px;
-  padding: 0 !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 4px !important;
-  background: #18181f !important;
-  accent-color: #e63946;
-  cursor: pointer;
-}
-
-.cvus-ag__remember span {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  color: #a1a1aa;
-}
-
-/* Submit button */
-.cvus-ag__submit {
-  width: 100% !important;
-  padding: 15px !important;
-  font-size: 0.85rem !important;
-  letter-spacing: 0.12em !important;
-  margin-top: 0.5rem;
-}
-
-/* Decline link */
-.cvus-ag__decline {
-  display: block;
-  font-family: 'Inter', sans-serif;
+  margin: 0 auto 1.25rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 0.78rem;
-  color: #52525b !important;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s;
-  padding: 4px 0;
+  color: rgba(255, 255, 255, 0.55);
 }
-
-.cvus-ag__decline:hover { color: #a1a1aa !important; }
+.cvus-ag__remember input {
+  width: 16px;
+  height: 16px;
+  accent-color: #E63946;
+  cursor: pointer;
+}
+.cvus-ag__remember:hover { color: rgba(255, 255, 255, 0.85); }
 
 /* Legal */
 .cvus-ag__legal {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  color: #3f3f46;
-  line-height: 1.6;
-  margin: 1.2rem 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 1.2rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
-
 .cvus-ag__legal a {
-  color: #52525b !important;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
-.cvus-ag__legal a:hover { color: #e63946 !important; }
+.cvus-ag__legal a:hover { color: #FFFFFF; }
 
 /* Mobile */
 @media (max-width: 480px) {
   .cvus-ag__modal {
-    padding: 2.2rem 1.5rem;
+    padding: 2.25rem 1.5rem 1.5rem;
     border-radius: 16px;
   }
-
-  .cvus-ag__dob-row {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .cvus-ag__field:last-child {
-    grid-column: 1 / -1;
-  }
+  .cvus-ag__seal { width: 72px; height: 72px; }
+  .cvus-ag__seal-num { font-size: 2rem; }
+  .cvus-ag__heading { font-size: 1.55rem; }
+  .cvus-ag__description { font-size: 0.85rem; }
+  .cvus-ag__btn { padding: 13px 16px; font-size: 0.85rem; }
 }
