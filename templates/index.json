@@ -85,20 +85,20 @@
       "type": "cvus-product-grid",
       "settings": {
         "title": "Top Sellers",
-        "collection": "all",
+        "collection": "best-sellers",
         "products_to_show": 6,
         "view_all_label": "Shop All",
-        "view_all_url": "/collections/all"
+        "view_all_url": "/collections/best-sellers"
       }
     },
     "cvus_new_arrivals": {
       "type": "cvus-product-grid",
       "settings": {
         "title": "New Arrivals",
-        "collection": "all",
+        "collection": "new-arrivals",
         "products_to_show": 6,
         "view_all_label": "Shop New",
-        "view_all_url": "/collections/all"
+        "view_all_url": "/collections/new-arrivals"
       }
     },
     "cvus_categories": {
